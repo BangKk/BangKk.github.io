@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>学习 Git · BangKk</title><meta name="description" content="学习 Git - BangKk"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://bangkk.github.io/atom.xml" title="BangKk"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/BangKk" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">学习 Git</h1><div class="post-info">2016年11月8日</div><div class="post-content"><h2 id="什么是-Git-？"><a href="#什么是-Git-？" class="headerlink" title="什么是 Git ？"></a>什么是 Git ？</h2><p>简单来说， Git 就是一个分布式版本控制系统，负责管理项目中的文件。</p>
+<p>Git可以在任何时间点，把文档的状态作为更新记录保存起来。因此可以把编辑过的文档复原到以前的状</p>
+<p>态，也可以显示编辑前后的内容差异。</p>
+<a id="more"></a>
+<h2 id="理解几个概念"><a href="#理解几个概念" class="headerlink" title="理解几个概念"></a>理解几个概念</h2><h4 id="仓库-（Repository）"><a href="#仓库-（Repository）" class="headerlink" title="仓库 （Repository）"></a>仓库 （Repository）</h4><p>这里的仓库是指存放着我们的项目文件和 Git 的配置和记录文件。一种是远程仓库，另一种是本地仓库。</p>
+<ul>
+<li><p>本地仓库: 为了方便用户个人使用，在自己的机器上配置的仓库。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 这里我们新建了一个 `git-study` 本地仓库。</span></div><div class="line">$ mkdir git-study</div><div class="line">$ <span class="built_in">cd</span> git-study</div><div class="line">$ git init</div><div class="line">Initialized empty Git repository <span class="keyword">in</span> /Users/yourname/Desktop/git-study/.git/</div></pre></td></tr></table></figure>
+</li>
+<li><p>远程仓库: 配有专用的服务器，为了多人共享而建立的仓库。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通过 Github 远程创建一个仓库</span></div><div class="line">$ git <span class="built_in">clone</span> https://github.com/BangKk/git-study.git</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="工作树和索引"><a href="#工作树和索引" class="headerlink" title="工作树和索引"></a>工作树和索引</h4><ul>
+<li><p>我们实际操作的目录和文件被称为工作树。</p>
+</li>
+<li><p>在仓库和工作树之间有索引，索引是为了向仓库提交作准备的区域。</p>
+</li>
+</ul>
+<p>我们对目录和文件的修改，通过 <code>git add</code> 命令添加到索引区，再通过 <code>git commit</code> 提交到仓库。</p>
+<p><strong>注意：</strong> Git在执行提交的时候，不是直接将工作树的状态保存到仓库，而是将设置在中间索引区域的状态保存到仓库。</p>
+<h4 id="分支（-Branch-）"><a href="#分支（-Branch-）" class="headerlink" title="分支（ Branch ）"></a>分支（ Branch ）</h4><p>分支是为了将修改记录的整体流程分叉保存。分叉后的分支不受其他分支的影响，所以在同一个仓库</p>
+<p>里可以同时进行多个修改。</p>
+<p>你可以把我们的仓库理解成一棵树，每棵树有一个树干（ master 分支），树枝就是这里的分支。</p>
+<h2 id="了解-Git-使用流程"><a href="#了解-Git-使用流程" class="headerlink" title="了解 Git 使用流程"></a>了解 Git 使用流程</h2><p>每次开发新功能，都应该新建一个单独的分支。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 切换到 master 分支，然后获取主干最新代码</span></div><div class="line">$ git checkout master</div><div class="line"><span class="comment"># pull 会拉取远程数据库的内容并自动合并，而 fetch 只会取得远程数据库的最新历史记录</span></div><div class="line">$ git pull</div><div class="line"></div><div class="line"><span class="comment"># 新建一个开发分支 myfeature</span></div><div class="line">$ git checkout -b myfeature</div></pre></td></tr></table></figure></p>
+<p>完成功能后，就可以提交 commit 了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加所有改动文件到索引</span></div><div class="line">$ git add .</div><div class="line"><span class="comment"># 显示修改文件清单</span></div><div class="line">git status</div><div class="line"><span class="comment"># 提交，-m 后的文字表示对提交的描述</span></div><div class="line">git commit -m <span class="string">"完成了XXX功能模块，提交到主分支"</span></div></pre></td></tr></table></figure>
+<p>在提交到远程仓库之前，我们还应该与主干同步。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git rebase origin/master</div></pre></td></tr></table></figure></p>
+<p>然后推送到远程仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin myfeature</div></pre></td></tr></table></figure></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/11/04/learn-angular-bootstrap/" class="next">NEXT</a></div><div data-thread-key="2016/11/08/git-study/" data-title="学习 Git" data-url="https://bangkk.github.io/2016/11/08/git-study/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"bangkk"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2016 <a href="https://bangkk.github.io">BangKk</a>: 天气转凉，请多穿条秋裤 :)</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

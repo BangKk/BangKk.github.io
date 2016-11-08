@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkk.github.io/"/>
-  <updated>2016-11-04T17:21:59.030Z</updated>
+  <updated>2016-11-08T11:30:46.001Z</updated>
   <id>https://bangkk.github.io/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习 Git</title>
+    <link href="https://bangkk.github.io/2016/11/08/git-study/"/>
+    <id>https://bangkk.github.io/2016/11/08/git-study/</id>
+    <published>2016-11-08T07:45:40.000Z</published>
+    <updated>2016-11-08T11:30:46.001Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是-Git-？"><a href="#什么是-Git-？" class="headerlink" title="什么是 Git ？"></a>什么是 Git ？</h2><p>简单来说， Git 就是一个分布式版本控制系统，负责管理项目中的文件。</p>
+<p>Git可以在任何时间点，把文档的状态作为更新记录保存起来。因此可以把编辑过的文档复原到以前的状</p>
+<p>态，也可以显示编辑前后的内容差异。</p>
+<a id="more"></a>
+<h2 id="理解几个概念"><a href="#理解几个概念" class="headerlink" title="理解几个概念"></a>理解几个概念</h2><h4 id="仓库-（Repository）"><a href="#仓库-（Repository）" class="headerlink" title="仓库 （Repository）"></a>仓库 （Repository）</h4><p>这里的仓库是指存放着我们的项目文件和 Git 的配置和记录文件。一种是远程仓库，另一种是本地仓库。</p>
+<ul>
+<li><p>本地仓库: 为了方便用户个人使用，在自己的机器上配置的仓库。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 这里我们新建了一个 `git-study` 本地仓库。</span></div><div class="line">$ mkdir git-study</div><div class="line">$ <span class="built_in">cd</span> git-study</div><div class="line">$ git init</div><div class="line">Initialized empty Git repository <span class="keyword">in</span> /Users/yourname/Desktop/git-study/.git/</div></pre></td></tr></table></figure>
+</li>
+<li><p>远程仓库: 配有专用的服务器，为了多人共享而建立的仓库。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通过 Github 远程创建一个仓库</span></div><div class="line">$ git <span class="built_in">clone</span> https://github.com/BangKk/git-study.git</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="工作树和索引"><a href="#工作树和索引" class="headerlink" title="工作树和索引"></a>工作树和索引</h4><ul>
+<li><p>我们实际操作的目录和文件被称为工作树。</p>
+</li>
+<li><p>在仓库和工作树之间有索引，索引是为了向仓库提交作准备的区域。</p>
+</li>
+</ul>
+<p>我们对目录和文件的修改，通过 <code>git add</code> 命令添加到索引区，再通过 <code>git commit</code> 提交到仓库。</p>
+<p><strong>注意：</strong> Git在执行提交的时候，不是直接将工作树的状态保存到仓库，而是将设置在中间索引区域的状态保存到仓库。</p>
+<h4 id="分支（-Branch-）"><a href="#分支（-Branch-）" class="headerlink" title="分支（ Branch ）"></a>分支（ Branch ）</h4><p>分支是为了将修改记录的整体流程分叉保存。分叉后的分支不受其他分支的影响，所以在同一个仓库</p>
+<p>里可以同时进行多个修改。</p>
+<p>你可以把我们的仓库理解成一棵树，每棵树有一个树干（ master 分支），树枝就是这里的分支。</p>
+<h2 id="了解-Git-使用流程"><a href="#了解-Git-使用流程" class="headerlink" title="了解 Git 使用流程"></a>了解 Git 使用流程</h2><p>每次开发新功能，都应该新建一个单独的分支。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 切换到 master 分支，然后获取主干最新代码</span></div><div class="line">$ git checkout master</div><div class="line"><span class="comment"># pull 会拉取远程数据库的内容并自动合并，而 fetch 只会取得远程数据库的最新历史记录</span></div><div class="line">$ git pull</div><div class="line"></div><div class="line"><span class="comment"># 新建一个开发分支 myfeature</span></div><div class="line">$ git checkout -b myfeature</div></pre></td></tr></table></figure></p>
+<p>完成功能后，就可以提交 commit 了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加所有改动文件到索引</span></div><div class="line">$ git add .</div><div class="line"><span class="comment"># 显示修改文件清单</span></div><div class="line">git status</div><div class="line"><span class="comment"># 提交，-m 后的文字表示对提交的描述</span></div><div class="line">git commit -m <span class="string">"完成了XXX功能模块，提交到主分支"</span></div></pre></td></tr></table></figure>
+<p>在提交到远程仓库之前，我们还应该与主干同步。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git rebase origin/master</div></pre></td></tr></table></figure></p>
+<p>然后推送到远程仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin myfeature</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是-Git-？&quot;&gt;&lt;a href=&quot;#什么是-Git-？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Git ？&quot;&gt;&lt;/a&gt;什么是 Git ？&lt;/h2&gt;&lt;p&gt;简单来说， Git 就是一个分布式版本控制系统，负责管理项目中的文件。&lt;/p&gt;
+&lt;p&gt;Git可以在任何时间点，把文档的状态作为更新记录保存起来。因此可以把编辑过的文档复原到以前的状&lt;/p&gt;
+&lt;p&gt;态，也可以显示编辑前后的内容差异。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>理解Angular启动过程</title>
