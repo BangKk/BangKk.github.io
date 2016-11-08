@@ -13,7 +13,7 @@
 <li>注册“run回调函数”，它将在模块初始化完毕时执行；</li>
 </ul>
 <p>当DOM构建完毕时，就会触发document的DOMContentLoaded事件，并执行Angular的启动代码。</p>
-<h2 id="四、Angular启动"><a href="#四、Angular启动" class="headerlink" title="四、Angular启动"></a>四、Angular启动</h2><p>Angular启动后，首先会去页面中找到第一个带有<code>ng-app</code>的节点，然后调用<code>angular.bootstrap</code>方法，</p>
+<h2 id="四、Angular启动"><a href="#四、Angular启动" class="headerlink" title="四、Angular启动"></a>四、Angular启动</h2><p>Angular首先会去页面中找到第一个带有<code>ng-app</code>的节点，然后调用<code>angular.bootstrap</code>方法，</p>
 <p>将该节点作为模块的根节点。刚刚所说的是Angular推荐的自启动方式，当然你也可以采用手动</p>
 <p><code>angular.bootstrap</code>方式来启动。</p>
 <h2 id="五、加载-启动子模块"><a href="#五、加载-启动子模块" class="headerlink" title="五、加载 / 启动子模块"></a>五、加载 / 启动子模块</h2><p>在这一步之前，DOM还没有和模型之间建立关联，所以它还是<code>Static DOM</code>。</p>
@@ -37,11 +37,11 @@
 <p>直到model中的值不在变化，watcher函数不再触发。这时，浏览器就会重新渲染DOM。</p>
 <p>至此，一个Angular程序就算启动成功了。</p>
 <p>最近读完了<a href="https://book.douban.com/subject/26708133/" target="_blank" rel="external">AngularJS深度剖析与最佳实践</a>，是目前学习Angular1.X最有价值的一本书，如果你有一定</p>
-<p>的Angular实践或者经验，这本书绝对能让你更深入了解Angular背后的原理和技巧。</p>
+<p>的Angular实践或者经验，这本书可以让你更深入了解Angular背后的原理和技巧。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li>[1] <a href="https://book.douban.com/subject/26708133/" target="_blank" rel="external">AngularJS深度剖析与最佳实践</a></li>
 </ul>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/10/29/about-me/" class="next">下一篇</a></div><div data-thread-key="2016/11/04/理解Angular启动过程/" data-title="理解Angular启动过程" data-url="https://bangkk.github.io/2016/11/04/理解Angular启动过程/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"seansun"};
+</div></article></div></section><footer><div class="paginator"><a href="/2016/10/29/about-me/" class="next">NEXT</a></div><div data-thread-key="2016/11/04/learn-angular-bootstrap/" data-title="理解Angular启动过程" data-url="https://bangkk.github.io/2016/11/04/learn-angular-bootstrap/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"BangKk"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

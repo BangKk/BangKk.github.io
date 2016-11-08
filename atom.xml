@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bangkk.github.io/"/>
-  <updated>2016-11-04T17:08:29.140Z</updated>
+  <updated>2016-11-04T17:21:59.030Z</updated>
   <id>https://bangkk.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>理解Angular启动过程</title>
-    <link href="https://bangkk.github.io/2016/11/04/%E7%90%86%E8%A7%A3Angular%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/"/>
-    <id>https://bangkk.github.io/2016/11/04/理解Angular启动过程/</id>
+    <link href="https://bangkk.github.io/2016/11/04/learn-angular-bootstrap/"/>
+    <id>https://bangkk.github.io/2016/11/04/learn-angular-bootstrap/</id>
     <published>2016-11-04T14:29:35.000Z</published>
-    <updated>2016-11-04T17:08:29.140Z</updated>
+    <updated>2016-11-04T17:21:59.030Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一张图理解Angular启动流程"><a href="#一张图理解Angular启动流程" class="headerlink" title="一张图理解Angular启动流程"></a>一张图理解Angular启动流程</h2><p><img src="http://og4g35bhc.bkt.clouddn.com/angular-startup.png" alt="Angular启动过程图"><br><a id="more"></a><br>这张图是Angular官网中开发指南的一张图，你可以在<a href="https://code.angularjs.org/1.3.8/docs/guide/bootstrap" target="_blank" rel="external">官方文档</a>上了解它。</p>
 <p>接下来我们来一步步的了解它。</p>
@@ -37,7 +37,7 @@
 <li>注册“run回调函数”，它将在模块初始化完毕时执行；</li>
 </ul>
 <p>当DOM构建完毕时，就会触发document的DOMContentLoaded事件，并执行Angular的启动代码。</p>
-<h2 id="四、Angular启动"><a href="#四、Angular启动" class="headerlink" title="四、Angular启动"></a>四、Angular启动</h2><p>Angular启动后，首先会去页面中找到第一个带有<code>ng-app</code>的节点，然后调用<code>angular.bootstrap</code>方法，</p>
+<h2 id="四、Angular启动"><a href="#四、Angular启动" class="headerlink" title="四、Angular启动"></a>四、Angular启动</h2><p>Angular首先会去页面中找到第一个带有<code>ng-app</code>的节点，然后调用<code>angular.bootstrap</code>方法，</p>
 <p>将该节点作为模块的根节点。刚刚所说的是Angular推荐的自启动方式，当然你也可以采用手动</p>
 <p><code>angular.bootstrap</code>方式来启动。</p>
 <h2 id="五、加载-启动子模块"><a href="#五、加载-启动子模块" class="headerlink" title="五、加载 / 启动子模块"></a>五、加载 / 启动子模块</h2><p>在这一步之前，DOM还没有和模型之间建立关联，所以它还是<code>Static DOM</code>。</p>
@@ -61,7 +61,7 @@
 <p>直到model中的值不在变化，watcher函数不再触发。这时，浏览器就会重新渲染DOM。</p>
 <p>至此，一个Angular程序就算启动成功了。</p>
 <p>最近读完了<a href="https://book.douban.com/subject/26708133/" target="_blank" rel="external">AngularJS深度剖析与最佳实践</a>，是目前学习Angular1.X最有价值的一本书，如果你有一定</p>
-<p>的Angular实践或者经验，这本书绝对能让你更深入了解Angular背后的原理和技巧。</p>
+<p>的Angular实践或者经验，这本书可以让你更深入了解Angular背后的原理和技巧。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li>[1] <a href="https://book.douban.com/subject/26708133/" target="_blank" rel="external">AngularJS深度剖析与最佳实践</a></li>
 </ul>
