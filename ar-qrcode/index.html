@@ -1,7 +1,6 @@
 <!doctype HTML>
 <html>
     <head>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     </head>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>	    
@@ -15,16 +14,13 @@
         <a-assets>
             <a-asset-item id="animated-asset" src="https://s2.jiediankeji.com/ar-qrcode/scene.gltf"></a-asset-item>
         </a-assets>
-        <a-marker>
-            <a-entity position='-3 2 0' text="width: 5; value:I am Psyduck. We are pokemon. We love you"></a-entity>
-            <!-- <a-entity position='-3 2 0' scale="2 2 1" material="color: #ef2d5e" text="width: 5; value: 生日快乐呀！ଘ(੭ˊᵕˋ)੭* ੈ✩"></a-entity> -->
-        </a-marker>
-        <!-- <a-marker id="animated-marker" type='barcode' value='6'>
+        <a-marker id="animated-marker" type='barcode' value='6'>
+            <a-entity text="width: 5; value:test; color: blue;"></a-entity>
             <a-entity
                 animation-mixer
                 gltf-model="#animated-asset">
             </a-entity>
-        </a-marker> -->
+        </a-marker>
 
         <a-entity camera></a-entity>
         </a-scene>
